@@ -8,25 +8,31 @@
 </head>
 
 <body>
+    <a id="a"></a>
     <script>
-        const add = (num1, num2) => {
-            return num1 + num2;
-        }
+        // const a = document.getElementById('a');
+        // a.addEventListener('click', (event) => {
+        // })
 
-        const subtract = (num1, num2) => {
-            return num1 - num2;
-        }
+        // const add = (num1, num2) => {
+        //     return num1 + num2;
+        // }
 
-        const multi = (num1, num2) => {
-            return num1 * num2;
-        }
+        // const subtract = (num1, num2) => {
+        //     return num1 - num2;
+        // }
 
-        const divide = (num1, num2) => {
-            return num1 / num2;
-        }
+        // const multi = (num1, num2) => {
+        //     return num1 * num2;
+        // }
+
+        // const divide = (num1, num2) => {
+        //     return num1 / num2;
+        // }
 
 
-        const calc = (callbackCalc, num1, num2) => {
+        const calc = (num1, num2, callbackCalc) => {
+
             console.log(callbackCalc(num1, num2));
         }
 
@@ -35,15 +41,15 @@
         const op = prompt('please enter operator');
 
         if (op == '+') {
-            calc(add, num1, num2)
+            calc(num1, num2, () => num1 + num2);
         }
 
         switch (op) {
-            case '*': return calc(multi, num1, num2);
-            case '/': return calc(divide, num1, num2);
+            case '*': calc(num1, num2, () => num1 * num2);
+            case '/': calc(num1, num2, () => num1 / num2);
         }
 
-        op == '-' && calc(subtract, num1, num2); // if
+        op == '-' && calc(num1, num2, () => num1 - num2); // if
 
         const str = prompt('please enter string');
         str == 'hello' ? console.log('hello') : console.log('not ok'); // if-else
