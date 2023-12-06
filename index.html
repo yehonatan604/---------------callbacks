@@ -30,29 +30,54 @@
         //     return num1 / num2;
         // }
 
+        const operators = [
+            '+',
+            '-',
+            '/',
+            '*'
+        ];
+
+        const funcs = [
+            () => num1 + num2,
+            () => num1 - num2,
+            () => num1 / num2,
+            () => num1 * num2
+        ];
 
         const calc = (num1, num2, callbackCalc) => {
-
             console.log(callbackCalc(num1, num2));
         }
 
         const num1 = +prompt('please enter num1');
         const num2 = +prompt('please enter num2');
-        const op = prompt('please enter operator');
+        
+        operators.forEach((item, index) => {
+            calc(num1, num2, funcs[index]);
+        });
+        
+        funcs.forEach((item) => {
+            calc(num1, num2, item);
+        });
+        
 
-        if (op == '+') {
-            calc(num1, num2, () => num1 + num2);
-        }
+        // let arr = [1,2,3,4,5,56,7,435435435435];
+        // arr[5];
+        
+        //const op = prompt('please enter operator');
 
-        switch (op) {
-            case '*': calc(num1, num2, () => num1 * num2);
-            case '/': calc(num1, num2, () => num1 / num2);
-        }
+        // if (op == '+') {
+        //     calc(num1, num2, () => num1 + num2);
+        // }
 
-        op == '-' && calc(num1, num2, () => num1 - num2); // if
+        // switch (op) {
+        //     case '*': calc(num1, num2, () => num1 * num2);
+        //     case '/': calc(num1, num2, () => num1 / num2);
+        // }
 
-        const str = prompt('please enter string');
-        str == 'hello' ? console.log('hello') : console.log('not ok'); // if-else
+        // op == '-' && calc(num1, num2, () => num1 - num2); // if
+
+        // const str = prompt('please enter string');
+        // str == 'hello' ? console.log('hello') : console.log('not ok'); // if-else
 
         // parseInt('9'); this converts string to a whole number
         // parseFloat('0.5'); this converts string to a floating number
