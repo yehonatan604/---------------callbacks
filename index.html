@@ -26,16 +26,30 @@
         }
 
 
-        const calc = (callbackCalc, num1, num2, op) => {
+        const calc = (callbackCalc, num1, num2) => {
+            console.log(callbackCalc(num1, num2));
         }
 
         const num1 = +prompt('please enter num1');
         const num2 = +prompt('please enter num2');
         const op = prompt('please enter operator');
 
-        // parseInt('9');
-        // parseFloat('0.5');
+        if (op == '+') {
+            calc(add, num1, num2)
+        }
 
+        switch (op) {
+            case '*': return calc(multi, num1, num2);
+            case '/': return calc(divide, num1, num2);
+        }
+
+        op == '-' && calc(subtract, num1, num2); // if
+
+        const str = prompt('please enter string');
+        str == 'hello' ? console.log('hello') : console.log('not ok'); // if-else
+
+        // parseInt('9'); this converts string to a whole number
+        // parseFloat('0.5'); this converts string to a floating number
 
     </script>
 </body>
